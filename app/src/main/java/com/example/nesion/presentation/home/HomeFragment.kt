@@ -5,7 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.nesion.R
+import com.example.nesion.data.remote.LazyResponse
+import com.example.nesion.databinding.FragmentHomeBinding
+import com.example.nesion.presentation.MainViewModel
+import com.example.nesion.presentation.NewsAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -14,20 +21,25 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [homeFragment.newInstance] factory method to
+ * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class homeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class HomeFragment : Fragment() {
+
+    private var _binding: FragmentHomeBinding?=null
+    private val binding get() = _binding as FragmentHomeBinding
+
+    private val homeViewModel by viewModels<MainViewModel>()
+
+    private val homeAdapter by lazy { NewsAdapter() }
+
+    private var _currentData: List<LazyResponse>? = null
+
+    private val currentData get() = _currentData as List<LazyResponse>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -35,26 +47,21 @@ class homeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment homeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            homeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun setupRecyclerView() {
+        binding.rvNews.apply {
+            homeViewModel.getLazy().observe(viewLifecycleOwner) {
+
             }
+            adapter = homeAdapter
+
+            layoutManager = StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL)
+
+
+        }
     }
 }

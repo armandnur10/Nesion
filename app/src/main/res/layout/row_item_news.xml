@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -36,14 +37,16 @@
                     android:elevation="0dp"
                     app:cardCornerRadius="15dp">
                     <TextView
+                        android:id="@+id/tv_category"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_news"
+                        android:text="news"
                         android:textColor="@color/black"
                         android:paddingVertical="5dp"
                         android:paddingHorizontal="20dp"/>
                 </com.google.android.material.card.MaterialCardView>
                 <TextView
+                    android:id="@+id/tv_title"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
@@ -69,6 +72,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginEnd="10dp">
                 <ImageView
+                    android:id="@+id/iv_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_row_item"/>
