@@ -8,14 +8,14 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.113" />
         <entry key="app/src/main/res/layout-v28/row_item_news.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.37892974802052604" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18132871330464295" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2097427368164062" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23496978759765624" />
-        <entry key="app/src/main/res/layout/fragment_news.xml" value="0.28072916666666664" />
+        <entry key="app/src/main/res/layout/fragment_news.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_news_page.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/fragment_recomen.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/fragment_tip.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/row_item_news.xml" value="0.3479923518164436" />
+        <entry key="app/src/main/res/layout/row_item_news.xml" value="0.5012886597938144" />
       </map>
     </option>
   </component>
