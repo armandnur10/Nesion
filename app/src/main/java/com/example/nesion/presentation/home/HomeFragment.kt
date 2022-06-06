@@ -29,6 +29,7 @@ class HomeFragment: Fragment() {
             adapter = mAdapter
         }
         return bind.root
+
     }
 
     override fun onDestroy() {
