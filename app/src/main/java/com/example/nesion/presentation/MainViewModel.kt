@@ -14,7 +14,7 @@ class MainViewModel :ViewModel() {
     private val lazyResponse = MutableLiveData<List<LazyResponse>>()
 
     fun lazy(){
-        ApiConfig().getApiService().getTech().enqueue(object : Callback<List<LazyResponse>> {
+        ApiConfig().getApiService().getGames().enqueue(object : Callback<List<LazyResponse>> {
             override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
                 if (response.isSuccessful) lazyResponse.postValue(response.body())
             }

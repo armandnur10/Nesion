@@ -19,7 +19,8 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
+            android:paddingTop="20dp"
             android:background="@android:color/transparent"
             app:popupTheme="@android:style/ThemeOverlay.Material.Light"
             app:titleTextColor="@color/black">
