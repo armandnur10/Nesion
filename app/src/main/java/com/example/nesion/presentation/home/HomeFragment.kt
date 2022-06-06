@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.nesion.R
 import com.example.nesion.data.remote.LazyResponse
 import com.example.nesion.databinding.FragmentHomeBinding
 import com.example.nesion.presentation.MainViewModel
@@ -19,6 +20,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding as FragmentHomeBinding
 
     private val homeViewModel by viewModels<MainViewModel>()
+
     private val homeAdapter by lazy { NewsAdapter() }
 
     private var _currentData: List<LazyResponse>? = null
@@ -36,10 +38,8 @@ class HomeFragment : Fragment() {
     ): View? {
 
         _binding = FragmentHomeBinding.inflate(layoutInflater)
+
         return binding.root
-
-
-
     }
 
     private fun setupRecyclerView() {
@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
 
             }
             adapter = homeAdapter
+
             layoutManager = StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL)
 
 
