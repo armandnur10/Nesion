@@ -1,4 +1,4 @@
-package com.example.nesion.presentation
+package com.example.nesion.presentation.home.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

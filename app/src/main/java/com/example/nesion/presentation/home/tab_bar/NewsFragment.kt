@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nesion.R
 import com.example.nesion.databinding.FragmentNewsBinding
-import com.example.nesion.presentation.NewsAdapter
+import com.example.nesion.presentation.home.adapter.NewsAdapter
 
 class NewsFragment : Fragment() {
 
