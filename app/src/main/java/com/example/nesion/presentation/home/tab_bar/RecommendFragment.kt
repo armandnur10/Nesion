@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.nesion.R
 
-class TipFragment : Fragment() {
+class RecommendFragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -16,8 +17,7 @@ class TipFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_tip, container, false)
+        return inflater.inflate(R.layout.fragment_recommend, container, false)
     }
 
 

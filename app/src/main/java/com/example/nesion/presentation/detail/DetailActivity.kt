@@ -3,10 +3,8 @@ package com.example.nesion.presentation.detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
-import com.example.nesion.R
 import com.example.nesion.data.remote.LazyResponse
 import com.example.nesion.databinding.ActivityDetailBinding
-import com.example.nesion.databinding.ActivityMainBinding
 
 class DetailActivity : AppCompatActivity() {
 
