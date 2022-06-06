@@ -1,4 +1,4 @@
-package com.example.nesion.presentation
+package com.example.nesion.presentation.home.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -20,7 +20,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
         RowItemNewsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
-    override fun onBindViewHolder(holder: NewsAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = listNews[position]
         holder.binding.apply {
             tvTitle.text = data.title
