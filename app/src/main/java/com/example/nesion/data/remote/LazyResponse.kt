@@ -28,3 +28,5 @@ data class LazyResponse(
 	@field:SerializedName("desc")
 	val desc: String? = null
 ) : Parcelable
+
+//cek
