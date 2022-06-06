@@ -9,13 +9,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel :ViewModel() {
+class MainViewModel : ViewModel() {
 
     private val lazyResponse = MutableLiveData<List<LazyResponse>>()
 
-    fun lazy(){
+    fun lazy() {
         ApiConfig().getApiService().getGames().enqueue(object : Callback<List<LazyResponse>> {
-            override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
+            override fun onResponse(
+                call: Call<List<LazyResponse>>,
+                response: Response<List<LazyResponse>>
+            ) {
                 if (response.isSuccessful) lazyResponse.postValue(response.body())
             }
 
@@ -25,5 +28,5 @@ class MainViewModel :ViewModel() {
         })
     }
 
-    fun getLazy() : LiveData<List<LazyResponse>> = lazyResponse
+    fun getLazy(): LiveData<List<LazyResponse>> = lazyResponse
 }
