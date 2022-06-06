@@ -1,15 +1,17 @@
 package com.example.nesion.presentation
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nesion.R
+import com.bumptech.glide.Glide
 import com.example.nesion.data.remote.LazyResponse
 import com.example.nesion.databinding.RowItemNewsBinding
+import com.example.nesion.presentation.detail.DetailActivity
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
+class NewsAdapter: RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
 
-    val listNews = ArrayList<LazyResponse>()
+    private var listNews = ArrayList<LazyResponse>()
 
     inner class MyViewHolder(val binding: RowItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -23,7 +25,12 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
         holder.binding.apply {
             tvTitle.text = data.title
             tvCategory.text = data.tag
-            ivImage.setImageResource(R.drawable.bg_row_item)
+            Glide.with(ivImage.context).load(data.thumb).into(ivImage)
+            holder.itemView.setOnClickListener{
+                val intent = Intent(it.context, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.NEWS_DATA, listNews[position])
+                it.context.startActivity(intent)
+            }
         }
     }
 

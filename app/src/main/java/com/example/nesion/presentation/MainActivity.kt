@@ -8,15 +8,13 @@ import com.example.nesion.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private var _binding: ActivityMainBinding? = null
-    private val binding get() = _binding as ActivityMainBinding
-
-    private var _viewModel : MainViewModel? = null
-    private val viewModel get() = _viewModel as MainViewModel
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
     }
 
     override fun onSupportNavigateUp(): Boolean {
