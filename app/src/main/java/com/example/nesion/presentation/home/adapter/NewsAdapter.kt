@@ -13,6 +13,8 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
 
     private var listNews = ArrayList<LazyResponse>()
 
+
+
     inner class MyViewHolder(val binding: RowItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -35,5 +37,12 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
     }
 
     override fun getItemCount() = listNews.size
+
+    fun setData(data : List<LazyResponse>){
+        if (data == null) return
+        listNews.clear()
+        listNews.addAll(data)
+
+    }
 
 }
