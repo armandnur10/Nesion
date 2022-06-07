@@ -8,16 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nesion.data.remote.LazyResponse
+import com.example.nesion.data.response.LazyResponse
 import com.example.nesion.databinding.FragmentNewsBinding
-import com.example.nesion.presentation.MainViewModel
+import com.example.nesion.presentation.TechViewModel
 import com.example.nesion.presentation.home.adapter.NewsAdapter
 
 class NewsFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsBinding
 
-    private val newsViewModel by viewModels<MainViewModel>()
+    private val newsViewModel by viewModels<TechViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
