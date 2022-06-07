@@ -10,4 +10,5 @@
 
 
     <color name="color_bg_default">#F6F8FA</color>
+    <color name="colorAccent">#F6F8FA</color>
 </resources>

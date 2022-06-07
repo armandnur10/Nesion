@@ -1,121 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.detail.DetailActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
-        <ImageView
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/title_detail"
+            app:layout_collapseMode="pin"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:id="@+id/iv_image"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/bg_row_item"
-            android:scaleType="centerCrop"/>
+            android:layout_height="wrap_content"
+            app:collapsedTitleTextAppearance="@style/CollapsedBarTextStyle"
+            app:contentScrim="@color/black"
+            app:expandedTitleTextAppearance="@style/ExpandedBarTextStyle"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="Detail">
 
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nsv_tes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_tes"
-                app:cardCornerRadius="30dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="200dp"
-                app:cardBackgroundColor="#FFFFFF"
+                android:layout_height="300dp">
 
-                card_view:cardPreventCornerOverlap="true">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_tes"
+                <ImageView
+                    android:id="@+id/iv_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:padding="16dp">
+                    android:foreground="@drawable/black_shadow"
+                    android:scaleType="centerCrop" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginHorizontal="20dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:id="@+id/ll_detail">
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="16dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:strokeColor="#4D000000"
-                            app:cardCornerRadius="20dp"
-                            app:strokeWidth="1dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:id="@+id/tv_category"
-                                android:layout_height="wrap_content"
-                                android:text="Tech Recommend"
-                                android:paddingVertical="10dp"
-                                android:paddingHorizontal="20dp"/>
-                        </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_detail"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_collapseMode="pin" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-                    </LinearLayout>
-                    <TextView
-                        android:id="@+id/tv_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:text="Samsung Galaxy S22, S22 Plus, dan S22 Ultra Resmi Masuk Indonesia, Ini Harganya Halaman"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ll_detail" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-                    <TextView
-                        android:id="@+id/tv_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="top"
-                        android:text="Saturday, August 20th"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/poppins_light"
-                        android:textStyle="normal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_description"
-                        android:fontFamily="@font/poppins_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="40dp"
-                        android:lineSpacingExtra="4sp"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        app:layout_constraintTop_toBottomOf="@id/tv_date"
-                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+                android:layout_marginVertical="20dp"
+                app:strokeWidth="0.5dp"
+                style="@style/TextDetail"
+                app:strokeColor="#4D000000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:id="@+id/tv_category"
+                    android:text="Tech"
+                    android:paddingHorizontal="15dp"
+                    android:textSize="20sp"
+                    android:paddingVertical="5dp"/>
             </com.google.android.material.card.MaterialCardView>
-        </androidx.core.widget.NestedScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_date"
+                android:text="may, 10 2022"
+                style="@style/TextDetail"
+                android:fontFamily="@font/poppins_light"/>
+
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/TextDetail"
+                android:fontFamily="@font/poppins"
+                android:layout_width="match_parent"
+                android:letterSpacing="0.2"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textSize="16sp"
+                tools:text="djsnfidbfibsfubs" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
