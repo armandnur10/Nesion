@@ -2,4 +2,18 @@
     <string name="app_name">Nesion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_sign_up">Register</string>
+    <string name="txt_info_sign_up">Don\'t have account? Register</string>
+    <string name="txt_image_for_sign_up">Image for signup illustration</string>
+    <string name="txt_email">email</string>
+    <string name="txt_name">name</string>
+    <string name="txt_phone_number">phone number</string>
+    <string name="txt_password">password</string>
+    <string name="txt_content_sign_up">configuration account</string>
+    <string name="txt_already_have_account">already have account? login</string>
+    <string name="txt_sign_in">Login</string>
+    <string name="txt_info_sign_in">Please enter your Email and Password below</string>
+    <string name="txt_image_for_sign_in">Image for sign In</string>
+    <string name="txt_forgot_password">forgot password?</string>
+    <string name="txt_content_sign_in">press btn to main</string>
 </resources>
