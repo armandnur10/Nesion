@@ -1,4 +1,4 @@
-package com.example.nesion.data.remote
+package com.example.nesion.data.response
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

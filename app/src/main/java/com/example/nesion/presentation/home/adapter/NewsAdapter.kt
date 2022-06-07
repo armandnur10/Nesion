@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.nesion.data.remote.LazyResponse
+import com.example.nesion.data.response.LazyResponse
 import com.example.nesion.databinding.RowItemNewsBinding
 import com.example.nesion.presentation.detail.DetailActivity
 
