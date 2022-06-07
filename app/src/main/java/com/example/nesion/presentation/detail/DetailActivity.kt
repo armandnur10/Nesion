@@ -14,6 +14,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         val data = intent.getParcelableExtra<LazyResponse>(NEWS_DATA) as LazyResponse
 
@@ -21,6 +22,7 @@ class DetailActivity : AppCompatActivity() {
         binding.apply {
             tvTitle.text = data.title
             tvDate.text = data.time
+            tvCategory.text = data.tag
             tvDescription.text = data.desc
         }
     }

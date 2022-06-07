@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+
+
         binding.vpNews.adapter= SectionPagerAdapter(this)
         binding.toolbar.elevation = 0f
         binding.appBar.elevation = 0f
