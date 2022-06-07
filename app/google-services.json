@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "591311642067",
+    "project_id": "nesion",
+    "storage_bucket": "nesion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591311642067:android:b25500b146959128c5a326",
+        "android_client_info": {
+          "package_name": "com.example.nesion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591311642067-p3b6f78rtq5spj0brldcc7nlhfgjoiq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3UqXVObdAhhuY2obS_B5rzGHWnJnuvPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591311642067-p3b6f78rtq5spj0brldcc7nlhfgjoiq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

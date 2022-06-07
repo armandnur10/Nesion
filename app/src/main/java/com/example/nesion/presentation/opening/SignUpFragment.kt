@@ -1,60 +1,100 @@
 package com.example.nesion.presentation.opening
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.nesion.R
+import com.example.nesion.databinding.FragmentSignUpBinding
+import com.google.firebase.auth.FirebaseAuth
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SignUpFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SignUpFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentSignUpBinding? = null
+    private val binding get() = _binding as FragmentSignUpBinding
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SignUpFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SignUpFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        auth = FirebaseAuth.getInstance()
+
+        val alreadyHaveAccountBuilder =
+            SpannableStringBuilder(getString(R.string.txt_already_have_account))
+
+        alreadyHaveAccountBuilder.setSpan(
+            ForegroundColorSpan(Color.parseColor("#7455F6")),
+            alreadyHaveAccountBuilder.indexOf("login"), // start
+            alreadyHaveAccountBuilder.length, // end
+            Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+        )
+
+        binding.apply {
+            tvAlreadyHaveAccount.apply {
+                text = alreadyHaveAccountBuilder
+                setOnClickListener {
+                    findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
                 }
             }
+
+            btnSignUp.setOnClickListener {
+                signUpUser()
+            }
+        }
+
+
+        // Inflate the layout for this fragment
+        return binding.root
     }
+
+    private fun signUpUser(){
+        binding.apply {
+            if (edtName.text.toString().isEmpty()){
+                edtName.error = "Tolong masukan nama"
+                edtName.requestFocus()
+                return
+            }
+
+            if (edtEmail.text.toString().isEmpty()){
+                edtEmail.error = "Tolong masukan Email"
+                edtEmail.requestFocus()
+                return
+            }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail.text.toString()).matches()){
+                edtEmail.error = "Tolong masukan Email"
+                edtEmail.requestFocus()
+                return
+            }
+
+            if (edtPassword.text.toString().isEmpty()){
+                edtPassword.error = "Tolong masukan nama"
+                edtPassword.requestFocus()
+                return
+            }
+
+            auth.createUserWithEmailAndPassword(edtEmail.text.toString(), edtPassword.text.toString())
+                .addOnCompleteListener() { task ->
+                    if (task.isSuccessful) {
+                        findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
+                    } else {
+                        Toast.makeText(context, "Sign Up failed.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+    }
+
 }

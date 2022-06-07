@@ -3,7 +3,7 @@
     <dimen name="vertical_space_15">15dp</dimen>
     <dimen name="vertical_space_30">30dp</dimen>
     <dimen name="auth_horizontal">54dp</dimen>
-    <dimen name="vertical_space_16">16</dimen>
-    <dimen name="vertical_space_20">20</dimen>
-    <dimen name="vertical_space_40">40</dimen>
+    <dimen name="vertical_space_16">16dp</dimen>
+    <dimen name="vertical_space_20">20dp</dimen>
+    <dimen name="vertical_space_40">40dp</dimen>
 </resources>
