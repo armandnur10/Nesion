@@ -19,8 +19,6 @@ class NewsFragment : Fragment() {
 
     private val newsViewModel by viewModels<MainViewModel>()
 
-    private val newsAdapter by lazy { NewsAdapter() }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
