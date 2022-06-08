@@ -39,7 +39,6 @@ class SignInFragment : Fragment() {
         // if user logged in
         if(auth.currentUser != null) {
             // then navigate to home
-            findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
         }
 
         val dontHaveAccountBuilder =
@@ -62,7 +61,6 @@ class SignInFragment : Fragment() {
             tvDontHaveAccount.apply {
                 text = dontHaveAccountBuilder
                 setOnClickListener {
-                    findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
                 }
             }
             tvForgotPassword.text = forgotPasswordBuilder
@@ -74,7 +72,6 @@ class SignInFragment : Fragment() {
 
                 auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
                     Log.i("SignIn", "onCreateView: $email $password")
-                    findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
                 }
             }
 
