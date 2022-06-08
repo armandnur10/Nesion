@@ -53,11 +53,12 @@
                     app:layout_constraintStart_toEndOf="@id/cv_bulet"
                     app:layout_constraintTop_toTopOf="@id/cv_bulet" />
 
-                <androidx.cardview.widget.CardView
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_profile_home"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginEnd="30dp"
-                    app:cardCornerRadius="30dp"
+                    android:src="@mipmap/ic_launcher"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

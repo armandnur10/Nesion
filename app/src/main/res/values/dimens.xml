@@ -6,4 +6,5 @@
     <dimen name="vertical_space_16">16dp</dimen>
     <dimen name="vertical_space_20">20dp</dimen>
     <dimen name="vertical_space_40">40dp</dimen>
+    <dimen name="vertical_space_18">18dp</dimen>
 </resources>

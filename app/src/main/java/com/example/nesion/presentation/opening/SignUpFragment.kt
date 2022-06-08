@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.nesion.R
 import com.example.nesion.databinding.FragmentSignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 
 class SignUpFragment : Fragment() {
 
@@ -88,7 +89,14 @@ class SignUpFragment : Fragment() {
             auth.createUserWithEmailAndPassword(edtEmail.text.toString(), edtPassword.text.toString())
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
-                        findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
+                        auth.currentUser?.let {
+                            val profileUpdates = UserProfileChangeRequest.Builder()
+                                .setDisplayName(binding.edtName.text.toString())
+                                .build()
+                            it.updateProfile(profileUpdates).addOnSuccessListener {
+                                findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
+                            }
+                        }
                     } else {
                         Toast.makeText(context, "Sign Up failed.",
                             Toast.LENGTH_SHORT).show()

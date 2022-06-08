@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.nesion.R
 import com.example.nesion.databinding.ActivityMainBinding
 import com.example.nesion.databinding.FragmentHomeBinding
@@ -33,6 +34,9 @@ class HomeFragment : Fragment() {
         binding.vpNews.adapter= SectionPagerAdapter(this.activity as FragmentActivity)
         binding.toolbar.elevation = 0f
         binding.appBar.elevation = 0f
+        binding.imgProfileHome.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
 
         viewModel.lazy()
 
