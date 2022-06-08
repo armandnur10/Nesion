@@ -6,9 +6,9 @@
     app:startDestination="@id/signInFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.nesion.presentation.home.tab_bar.NewsFragment"
+        android:name="com.example.nesion.presentation.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.nesion.presentation.opening.SignUpFragment"

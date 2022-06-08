@@ -6,10 +6,12 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.text.style.UnderlineSpan
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.nesion.R
 import com.example.nesion.databinding.FragmentSignInBinding
@@ -32,8 +34,13 @@ class SignInFragment : Fragment() {
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
         auth = FirebaseAuth.getInstance()
 
+        Log.i("SignIn", "onCreateView: ${auth.currentUser}")
+
         // if user logged in
-        // then navigate to home
+        if(auth.currentUser != null) {
+            // then navigate to home
+            findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+        }
 
         val dontHaveAccountBuilder =
             SpannableStringBuilder(getString(R.string.txt_info_sign_up))
@@ -61,6 +68,16 @@ class SignInFragment : Fragment() {
             tvForgotPassword.text = forgotPasswordBuilder
 
             //btnSignIn -> ke fragment home
+            btnSignIn.setOnClickListener {
+                val email = edtEmail.text.toString()
+                val password = edtPassword.text.toString()
+
+                auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
+                    Log.i("SignIn", "onCreateView: $email $password")
+                    findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+                }
+            }
+
         }
         // Inflate the layout for this fragment
         return binding.root
@@ -78,3 +95,5 @@ class SignInFragment : Fragment() {
     }
 
 }
+
+//findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
