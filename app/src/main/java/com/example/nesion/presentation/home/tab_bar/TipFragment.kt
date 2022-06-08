@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nesion.R
 import com.example.nesion.data.response.LazyResponse
 import com.example.nesion.databinding.FragmentTipBinding
 import com.example.nesion.presentation.TechViewModel
