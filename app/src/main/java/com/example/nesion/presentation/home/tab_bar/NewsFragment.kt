@@ -30,7 +30,7 @@ class NewsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        newsViewModel.lazy()
+        newsViewModel.news()
         newsViewModel.getLazy().observe(viewLifecycleOwner){
             setupRecyclerView(it)
         }
@@ -40,7 +40,7 @@ class NewsFragment : Fragment() {
         binding.rvNews.apply {
             Log.i("DataLazy", "$data")
             val mAdapter = NewsAdapter()
-            mAdapter.setData(data)
+            mAdapter.setNews(data)
             layoutManager = LinearLayoutManager(activity)
             adapter = mAdapter
         }
