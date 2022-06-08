@@ -3,31 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../Library/Android/sdk/platforms/android-32/data/res/layout-xlarge/activity_list.xml" value="0.210546875" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.113" />
-        <entry key="app/src/main/res/drawable/bg_button_submit.xml" value="0.1815" />
+        <entry key="app/src/main/res/drawable/bg_button_submit.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/bg_card_detail.xml" value="0.12" />
-        <entry key="app/src/main/res/drawable/bg_input_auth.xml" value="0.1815" />
+        <entry key="app/src/main/res/drawable/bg_input_auth.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/black_shadow.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.113" />
-        <entry key="app/src/main/res/drawable/sign_in.xml" value="0.1815" />
-        <entry key="app/src/main/res/font/poppins_bold.xml" value="0.22239583333333332" />
-        <entry key="app/src/main/res/font/poppins_semibold.xml" value="0.33611111111111114" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1295" />
+        <entry key="app/src/main/res/font/font.xml" value="0.23981481481481481" />
+        <entry key="app/src/main/res/font/poppins_medium.xml" value="0.23981481481481481" />
+        <entry key="app/src/main/res/font/poppins_semibold.xml" value="0.23981481481481481" />
         <entry key="app/src/main/res/layout-v28/row_item_news.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.37892974802052604" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2009475708007812" />
-        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2776268115942029" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.2776268115942029" />
-        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1921875" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.32324621733149933" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.20099792480468748" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.2677083333333333" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3625164794921875" />
-        <entry key="app/src/main/res/layout/fragment_news.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23496978759765624" />
+        <entry key="app/src/main/res/layout/fragment_news.xml" value="0.26089060987415297" />
         <entry key="app/src/main/res/layout/fragment_news_page.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_recomen.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/fragment_recommend.xml" value="0.2776268115942029" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.1773049645390071" />
-        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/fragment_recommend.xml" value="0.28072916666666664" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.23935902913411444" />
+        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.19907407407407407" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.19907407407407407" />
         <entry key="app/src/main/res/layout/fragment_tip.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/row_item_news.xml" value="0.5012886597938144" />
+        <entry key="app/src/main/res/layout/row_item_news.xml" value="0.45073375262054505" />
+        <entry key="app/src/main/res/menu/menu_item.xml" value="0.2677083333333333" />
       </map>
     </option>
   </component>

@@ -9,9 +9,9 @@ import com.example.nesion.data.response.LazyResponse
 import com.example.nesion.databinding.RowItemNewsBinding
 import com.example.nesion.presentation.detail.DetailActivity
 
-class NewsAdapter: RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
+class RecommendAdapter: RecyclerView.Adapter<RecommendAdapter.MyViewHolder>(){
 
-    private var listNews = ArrayList<LazyResponse>()
+    private var listRecommend = ArrayList<LazyResponse>()
 
 
 
@@ -23,24 +23,24 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
     )
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val data = listNews[position]
+        val data = listRecommend[position]
         holder.binding.apply {
             tvTitle.text = data.title
             tvCategory.text = data.tag
             Glide.with(ivImage.context).load(data.thumb).into(ivImage)
             holder.itemView.setOnClickListener{
                 val intent = Intent(it.context, DetailActivity::class.java)
-                intent.putExtra(DetailActivity.NEWS_DATA, listNews[position])
+                intent.putExtra(DetailActivity.NEWS_DATA, listRecommend[position])
                 it.context.startActivity(intent)
             }
         }
     }
 
-    override fun getItemCount() = listNews.size
+    override fun getItemCount() = listRecommend.size
 
-    fun setNews(data : List<LazyResponse>){
-        listNews.clear()
-        listNews.addAll(data)
+    fun setRecommend(data : List<LazyResponse>){
+        listRecommend.clear()
+        listRecommend.addAll(data)
 
     }
 

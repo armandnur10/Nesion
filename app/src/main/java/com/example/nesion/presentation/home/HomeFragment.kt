@@ -1,5 +1,4 @@
 package com.example.nesion.presentation.home
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,8 +20,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding : FragmentHomeBinding
 
-    private val viewModel : TechViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +35,9 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
 
-        viewModel.lazy()
+        binding.fabSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
 
         val tablist = arrayOf("News", "Tip", "Recommend")
         TabLayoutMediator(binding.tabs, binding.vpNews){
