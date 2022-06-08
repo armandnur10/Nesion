@@ -16,4 +16,5 @@
     <string name="txt_image_for_sign_in">Image for sign In</string>
     <string name="txt_forgot_password">forgot password?</string>
     <string name="txt_content_sign_in">press btn to main</string>
+    <string name="content_fab_add_notes">for search home</string>
 </resources>

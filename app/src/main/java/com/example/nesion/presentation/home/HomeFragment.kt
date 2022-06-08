@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+        binding = FragmentHomeBinding.inflate(layoutInflater)
 
         binding.vpNews.adapter= SectionPagerAdapter(this.activity as FragmentActivity)
         binding.toolbar.elevation = 0f

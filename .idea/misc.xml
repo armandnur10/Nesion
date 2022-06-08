@@ -16,11 +16,13 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2009475708007812" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.2677083333333333" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23496978759765624" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3625164794921875" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_news_page.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/fragment_recomen.xml" value="0.28072916666666664" />
+        <entry key="app/src/main/res/layout/fragment_recommend.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.1773049645390071" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_tip.xml" value="0.28072916666666664" />

@@ -11,4 +11,6 @@
 
     <color name="color_bg_default">#F6F8FA</color>
     <color name="colorAccent">#F6F8FA</color>
+    <color name="dark_gray">#3B3B3B</color>
+
 </resources>
