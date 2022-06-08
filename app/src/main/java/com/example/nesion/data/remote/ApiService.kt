@@ -8,4 +8,10 @@ interface ApiService {
 
     @GET("tech")
     fun getTech() : Call<List<LazyResponse>>
+
+    @GET("tech/tip")
+    fun getTechTip() : Call<List<LazyResponse>>
+
+    @GET("tech/recommend")
+    fun getTechRec() : Call<List<LazyResponse>>
 }

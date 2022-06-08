@@ -28,4 +28,41 @@ class TechViewModel :ViewModel() {
     }
 
     fun getLazy() : LiveData<List<LazyResponse>> = lazyResponse
+
+    fun lazyTip(){
+        ApiConfig().getApiService().getTechTip().enqueue(object : Callback<List<LazyResponse>>{
+            override fun onResponse(
+                call: Call<List<LazyResponse>>,
+                response: Response<List<LazyResponse>>
+            ) {
+                if (response.isSuccessful) lazyResponse.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    fun getLazyTip() : LiveData<List<LazyResponse>> = lazyResponse
+
+
+    fun lazyRec(){
+        ApiConfig().getApiService().getTechRec().enqueue(object : Callback<List<LazyResponse>>{
+            override fun onResponse(
+                call: Call<List<LazyResponse>>,
+                response: Response<List<LazyResponse>>
+            ) {
+                if (response.isSuccessful) lazyResponse.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    fun getLazyRec() : LiveData<List<LazyResponse>> = lazyResponse
 }
