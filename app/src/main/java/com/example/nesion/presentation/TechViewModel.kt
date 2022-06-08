@@ -15,8 +15,21 @@ class TechViewModel :ViewModel() {
 
     private val lazyResponse = MutableLiveData<List<LazyResponse>>()
 
-    fun lazy(){
-        ApiConfig().getApiService().getTech().enqueue(object : Callback<List<LazyResponse>> {
+    fun news(){
+        ApiConfig().getApiService().getNews().enqueue(object : Callback<List<LazyResponse>> {
+            override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
+                if (response.isSuccessful) lazyResponse.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
+
+    }
+
+    fun tip(){
+        ApiConfig().getApiService().getTip().enqueue(object : Callback<List<LazyResponse>> {
             override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
                 if (response.isSuccessful) lazyResponse.postValue(response.body())
             }
@@ -26,6 +39,31 @@ class TechViewModel :ViewModel() {
             }
         })
     }
+
+    fun recommend(){
+        ApiConfig().getApiService().getRecommend().enqueue(object : Callback<List<LazyResponse>> {
+            override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
+                if (response.isSuccessful) lazyResponse.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
+    fun search(search:String){
+        ApiConfig().getApiService().getSearch(search).enqueue(object : Callback<List<LazyResponse>> {
+            override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
+                if (response.isSuccessful) lazyResponse.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
 
     fun getLazy() : LiveData<List<LazyResponse>> = lazyResponse
 }
