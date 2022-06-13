@@ -16,7 +16,7 @@ import com.example.nesion.presentation.TechViewModel
 import com.example.nesion.presentation.home.adapter.NewsAdapter
 import com.example.nesion.presentation.home.adapter.RecommendAdapter
 
-class SearchFragment : Fragment(), androidx.appcompat.widget.SearchView.OnQueryTextListener {
+class SearchFragment : Fragment(){
 
     private lateinit var binding: FragmentSearchBinding
 
@@ -37,6 +37,22 @@ class SearchFragment : Fragment(), androidx.appcompat.widget.SearchView.OnQueryT
         // Inflate the layout for this fragment
 
         binding = FragmentSearchBinding.inflate(layoutInflater)
+        binding.btnBackSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+        }
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let {
+                    searchViewModel.search(query)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+
+        })
 
         return binding.root
     }
@@ -61,26 +77,10 @@ class SearchFragment : Fragment(), androidx.appcompat.widget.SearchView.OnQueryT
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {1
-        inflater.inflate(R.menu.menu_item, menu)
-        super.onCreateOptionsMenu(menu, inflater)
 
-        val search = menu.findItem(R.id.search_action)
-        val searchAction = search.actionView as? SearchView
-        searchAction?.setOnQueryTextListener(this)
-    }
 
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        query?.let {
-            searchViewModel.search(query)
-        }
-        return true
-    }
 
-    override fun onQueryTextChange(newText: String?): Boolean {
 
-        return false
-    }
 
 }
 

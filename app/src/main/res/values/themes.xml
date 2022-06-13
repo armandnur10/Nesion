@@ -58,4 +58,31 @@
         <item name="contentInsetStart">0dp</item>
         <item name="contentInsetEnd">0dp</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/light_gray</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CustomToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- HERE ARE THE CHANGES - Change color of different texts -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/light_gray</item>
+        <item name="tint">@color/light_gray</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+        <item name="android:textCursorDrawable">@drawable/color_cursor</item>
+    </style>
+
+    <style name="searchStylr" parent="Widget.AppCompat.SearchView" >
+        <item name="android:textColorHint">@color/light_gray</item>
+        <item name="android:textColor">@color/light_gray</item>
+    </style>
 </resources>

@@ -36,6 +36,9 @@ class ProfileFragment : Fragment() {
                     auth.signOut()
                     findNavController().navigate(R.id.action_profileFragment_to_signInFragment)
                 }
+                btnBackProfile.setOnClickListener {
+                    findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
+                }
             }
         }
 

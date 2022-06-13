@@ -1,19 +1,26 @@
 package com.example.nesion.presentation.detail
-
-import android.R
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.View
-import android.widget.Toolbar
-import androidx.annotation.NonNull
-import androidx.appcompat.app.ActionBar
+import android.widget.RemoteViews
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.bumptech.glide.Glide
+import com.example.nesion.R
 import com.example.nesion.data.response.LazyResponse
 import com.example.nesion.databinding.ActivityDetailBinding
-import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class DetailActivity : AppCompatActivity(){
+
+    val CHANNEL_ID = "channelID"
+
+    val notificationId = 101
 
     private lateinit var binding: ActivityDetailBinding
 
@@ -23,7 +30,6 @@ class DetailActivity : AppCompatActivity(){
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarDetail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        
 
         val data = intent.getParcelableExtra<LazyResponse>(NEWS_DATA) as LazyResponse
         Glide.with(this).load(data.thumb).into(binding.ivImage)
@@ -33,8 +39,36 @@ class DetailActivity : AppCompatActivity(){
             tvCategory.text = data.tag
             tvDescription.text = data.desc
         }
+        createNotificationChannel()
+        val notificationLayout = RemoteViews(packageName, R.layout.custom_notification)
+        val builder = NotificationCompat.Builder( this, CHANNEL_ID)
+            .setContentTitle("Title")
+            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setStyle(NotificationCompat.DecoratedCustomViewStyle())
+            .setCustomContentView(notificationLayout)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        binding.btnDetail.setOnClickListener{
+            with(NotificationManagerCompat.from(this)){
+                notify(0, builder.build())
+            }
+        }
     }
 
+    private fun createNotificationChannel() {
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val name = "Name"
+            val desc = "This is your description"
+            val importance : Int = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                description = desc
+            }
+            val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+
+    }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
