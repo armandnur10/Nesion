@@ -20,8 +20,6 @@ class DetailActivity : AppCompatActivity(){
 
     val CHANNEL_ID = "channelID"
 
-    val notificationId = 101
-
     private lateinit var binding: ActivityDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,12 +39,14 @@ class DetailActivity : AppCompatActivity(){
         }
         createNotificationChannel()
         val notificationLayout = RemoteViews(packageName, R.layout.custom_notification)
+
         val builder = NotificationCompat.Builder( this, CHANNEL_ID)
             .setContentTitle("Title")
             .setSmallIcon(R.drawable.ic_launcher_background)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
             .setCustomContentView(notificationLayout)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
 
         binding.btnDetail.setOnClickListener{
             with(NotificationManagerCompat.from(this)){
@@ -58,9 +58,9 @@ class DetailActivity : AppCompatActivity(){
     private fun createNotificationChannel() {
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val name = "Name"
-            val desc = "This is your description"
-            val importance : Int = NotificationManager.IMPORTANCE_DEFAULT
+            val name = "Detail page"
+            val desc = "Welcome to Detail page in Nesion App"
+            val importance : Int = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = desc
             }
