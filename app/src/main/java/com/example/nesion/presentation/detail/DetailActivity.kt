@@ -4,7 +4,6 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.widget.RemoteViews
@@ -15,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.nesion.R
 import com.example.nesion.data.response.LazyResponse
 import com.example.nesion.databinding.ActivityDetailBinding
+import com.example.nesion.databinding.CustomNotificationBinding
 
 class DetailActivity : AppCompatActivity(){
 
@@ -37,14 +37,14 @@ class DetailActivity : AppCompatActivity(){
             tvCategory.text = data.tag
             tvDescription.text = data.desc
         }
-        createNotificationChannel()
-        val notificationLayout = RemoteViews(packageName, R.layout.custom_notification)
+        createNotificationChannel(CHANNEL_ID, "title", "description")
+
 
         val builder = NotificationCompat.Builder( this, CHANNEL_ID)
-            .setContentTitle("Title")
-            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setContentTitle(data.title)
+            .setContentText(data.desc)
+            .setSmallIcon(R.drawable.ic_notif)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
-            .setCustomContentView(notificationLayout)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
 
@@ -55,11 +55,9 @@ class DetailActivity : AppCompatActivity(){
         }
     }
 
-    private fun createNotificationChannel() {
+    private fun createNotificationChannel(id: String, name: String, desc: String) {
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val name = "Detail page"
-            val desc = "Welcome to Detail page in Nesion App"
             val importance : Int = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = desc

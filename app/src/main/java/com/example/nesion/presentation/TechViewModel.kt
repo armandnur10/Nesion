@@ -22,7 +22,6 @@ class TechViewModel :ViewModel() {
             }
 
             override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
 
@@ -35,7 +34,6 @@ class TechViewModel :ViewModel() {
             }
 
             override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
     }
@@ -47,7 +45,6 @@ class TechViewModel :ViewModel() {
             }
 
             override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
     }
@@ -59,7 +56,6 @@ class TechViewModel :ViewModel() {
             }
 
             override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
     }
