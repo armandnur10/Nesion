@@ -18,7 +18,7 @@ import com.example.nesion.databinding.CustomNotificationBinding
 
 class DetailActivity : AppCompatActivity(){
 
-    val CHANNEL_ID = "channelID"
+    val CHANNEL_ID = "id01"
 
     private lateinit var binding: ActivityDetailBinding
 

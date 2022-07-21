@@ -22,9 +22,6 @@ class SearchFragment : Fragment(){
 
     private val searchViewModel by viewModels<TechViewModel>()
 
-
-    private val newsAdapter by lazy { NewsAdapter() }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
