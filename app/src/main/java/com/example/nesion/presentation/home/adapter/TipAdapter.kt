@@ -13,8 +13,6 @@ class TipAdapter: RecyclerView.Adapter<TipAdapter.MyViewHolder>(){
 
     private var listTip = ArrayList<LazyResponse>()
 
-
-
     inner class MyViewHolder(val binding: RowItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root)
 

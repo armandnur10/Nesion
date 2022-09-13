@@ -28,19 +28,19 @@ class ProfileFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
 
         // load data from user
-        auth.currentUser?.let {
-            binding.apply {
-                txtTitleProfile.text = it.displayName
-                txtEmailProfile.text = it.email
-                btnLogOut.setOnClickListener {
-                    auth.signOut()
-                    findNavController().navigate(R.id.action_profileFragment_to_signInFragment)
-                }
-                btnBackProfile.setOnClickListener {
-                    findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
-                }
-            }
-        }
+//        auth.currentUser?.let {
+//            binding.apply {
+//                txtTitleProfile.text = it.displayName
+//                txtEmailProfile.text = it.email
+//                btnLogOut.setOnClickListener {
+//                    auth.signOut()
+//                    findNavController().navigate(R.id.action_profileFragment_to_signInFragment)
+//                }
+//                btnBackProfile.setOnClickListener {
+//                    findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
+//                }
+//            }
+//        }
 
         return binding.root
     }

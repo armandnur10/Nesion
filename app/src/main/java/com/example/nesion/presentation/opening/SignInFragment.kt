@@ -37,10 +37,10 @@ class SignInFragment : Fragment() {
         Log.i("SignIn", "onCreateView: ${auth.currentUser}")
 
         // if user logged in
-        if(auth.currentUser != null) {
-            // then navigate to home
-            findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
-        }
+//        if(auth.currentUser != null) {
+//            // then navigate to home
+//            findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+//        }
 
         val dontHaveAccountBuilder =
             SpannableStringBuilder(getString(R.string.txt_info_sign_up))
@@ -59,12 +59,12 @@ class SignInFragment : Fragment() {
         )
 
         binding.apply {
-            tvDontHaveAccount.apply {
-                text = dontHaveAccountBuilder
-                setOnClickListener {
-                    findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
-                }
-            }
+//            tvDontHaveAccount.apply {
+//                text = dontHaveAccountBuilder
+//                setOnClickListener {
+//                    findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
+//                }
+//            }
             tvForgotPassword.text = forgotPasswordBuilder
 
             //btnSignIn -> ke fragment home
