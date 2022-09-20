@@ -31,9 +31,9 @@ class HomeFragment : Fragment() {
         binding.vpNews.adapter= SectionPagerAdapter(this.activity as FragmentActivity)
         binding.toolbar.elevation = 0f
         binding.appBar.elevation = 0f
-//        binding.imgProfileHome.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
-//        }
+        binding.imgProfileHome.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
 
         binding.fabSearch.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)

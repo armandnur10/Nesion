@@ -2,6 +2,7 @@
 
 package com.example.nesion.presentation
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -49,16 +50,6 @@ class TechViewModel :ViewModel() {
         })
     }
 
-    fun search(search:String){
-        ApiConfig().getApiService().getSearch(search).enqueue(object : Callback<List<LazyResponse>> {
-            override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
-                if (response.isSuccessful) lazyResponse.postValue(response.body())
-            }
-
-            override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
-            }
-        })
-    }
 
 
     fun getLazy() : LiveData<List<LazyResponse>> = lazyResponse

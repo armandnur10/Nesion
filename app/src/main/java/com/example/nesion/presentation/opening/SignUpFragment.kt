@@ -42,18 +42,18 @@ class SignUpFragment : Fragment() {
             Spannable.SPAN_EXCLUSIVE_INCLUSIVE
         )
 
-//        binding.apply {
-//            tvAlreadyHaveAccount.apply {
-//                text = alreadyHaveAccountBuilder
-//                setOnClickListener {
-//                    findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
-//                }
-//            }
-//
-//            btnSignUp.setOnClickListener {
-//                signUpUser()
-//            }
-//        }
+        binding.apply {
+            tvAlreadyHaveAccount.apply {
+                text = alreadyHaveAccountBuilder
+                setOnClickListener {
+                    findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
+                }
+            }
+
+            btnSignUp.setOnClickListener {
+                signUpUser()
+            }
+        }
 
 
         // Inflate the layout for this fragment
@@ -86,22 +86,22 @@ class SignUpFragment : Fragment() {
                 return
             }
 
-//            auth.createUserWithEmailAndPassword(edtEmail.text.toString(), edtPassword.text.toString())
-//                .addOnCompleteListener() { task ->
-//                    if (task.isSuccessful) {
-//                        auth.currentUser?.let {
-//                            val profileUpdates = UserProfileChangeRequest.Builder()
-//                                .setDisplayName(binding.edtName.text.toString())
-//                                .build()
-//                            it.updateProfile(profileUpdates).addOnSuccessListener {
-//                                findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
-//                            }
-//                        }
-//                    } else {
-//                        Toast.makeText(context, "Sign Up failed.",
-//                            Toast.LENGTH_SHORT).show()
-//                    }
-//                }
+            auth.createUserWithEmailAndPassword(edtEmail.text.toString(), edtPassword.text.toString())
+                .addOnCompleteListener() { task ->
+                    if (task.isSuccessful) {
+                        auth.currentUser?.let {
+                            val profileUpdates = UserProfileChangeRequest.Builder()
+                                .setDisplayName(binding.edtName.text.toString())
+                                .build()
+                            it.updateProfile(profileUpdates).addOnSuccessListener {
+                                findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
+                            }
+                        }
+                    } else {
+                        Toast.makeText(context, "Sign Up failed.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
 

@@ -6,21 +6,23 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nesion.R
 import com.example.nesion.data.response.LazyResponse
 import com.example.nesion.databinding.FragmentRecommendBinding
 import com.example.nesion.databinding.FragmentSearchBinding
+import com.example.nesion.presentation.SearchViewModel
 import com.example.nesion.presentation.TechViewModel
 import com.example.nesion.presentation.home.adapter.NewsAdapter
 import com.example.nesion.presentation.home.adapter.RecommendAdapter
+import com.example.nesion.presentation.home.adapter.SearchAdapter
 
 class SearchFragment : Fragment(){
 
-    private lateinit var binding: FragmentSearchBinding
-
-    private val searchViewModel by viewModels<TechViewModel>()
+    private var _binding : FragmentSearchBinding? = null
+    private val binding get() = _binding as FragmentSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,51 +30,40 @@ class SearchFragment : Fragment(){
     ): View? {
         // Inflate the layout for this fragment
 
-        binding = FragmentSearchBinding.inflate(layoutInflater)
+        val viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
+
+        _binding = FragmentSearchBinding.inflate(layoutInflater)
         binding.btnBackSearch.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
         }
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let {
-                    searchViewModel.search(query)
+
+        binding.btnSearch.setOnClickListener {
+            viewModel.search(binding.textInputSearch.text.toString())
+            viewModel.apply {
+                getSearchNews()
+                listSearch.observe(viewLifecycleOwner) {
+                    showData(it)
                 }
-                return true
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false
             }
+        }
 
-        })
+        viewModel.listSearch.observe(viewLifecycleOwner) {
+            Log.i("DataNews", "onCreate : terbuat")
+            println(it[0].title)
+        }
 
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun showData(data: List<LazyResponse>?) {
 
-        setHasOptionsMenu(true)
-        searchViewModel.news()
-        searchViewModel.getLazy().observe(viewLifecycleOwner) {
-            setupRecyclerView(it)
-        }
-    }
-
-    private fun setupRecyclerView(data : List<LazyResponse>){
         binding.rvNews.apply {
-            Log.i("DataLazy", "$data")
-            val mAdapter = NewsAdapter()
-            mAdapter.setNews(data)
             layoutManager = LinearLayoutManager(activity)
-            adapter = mAdapter
+            adapter = data?.let { SearchAdapter(it) }
         }
+
     }
-
-
-
-
-
 
 }
 

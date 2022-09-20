@@ -17,7 +17,7 @@ interface ApiService {
     @GET("tech/recommend")
     fun getRecommend(): Call<List<LazyResponse>>
 
-    @GET("tech/search")
+    @GET("search")
     fun getSearch(
         @Query("search") search: String
     ): Call<List<LazyResponse>>
