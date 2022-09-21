@@ -10,7 +10,7 @@ import com.example.nesion.databinding.RowItemNewsBinding
 import com.example.nesion.databinding.RowItemSearchBinding
 import com.example.nesion.presentation.detail.DetailActivity
 
-class SearchAdapter( private val listNews: List<LazyResponse>): RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
+class  SearchAdapter( private val listNews: List<LazyResponse>): RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
 
     class MyViewHolder(val binding : RowItemSearchBinding) : RecyclerView.ViewHolder(binding.root)
 

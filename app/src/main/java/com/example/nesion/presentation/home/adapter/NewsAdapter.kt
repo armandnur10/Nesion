@@ -25,7 +25,8 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
         holder.binding.apply {
             tvTitle.text = data.title
             tvCategory.text = data.tag
-            Glide.with(ivImage.context).load(data.thumb).into(ivImage)
+            Glide.with(ivImage.context)
+                .load(data.thumb).into(ivImage)
             holder.itemView.setOnClickListener{
                 val intent = Intent(it.context, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.NEWS_DATA, listNews[position])
