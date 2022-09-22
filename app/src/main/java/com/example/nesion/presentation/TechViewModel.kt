@@ -16,13 +16,18 @@ class TechViewModel :ViewModel() {
 
     private val lazyResponse = MutableLiveData<List<LazyResponse>>()
 
+    val isLoading = MutableLiveData(true)
+
     fun news(){
         ApiConfig().getApiService().getNews().enqueue(object : Callback<List<LazyResponse>> {
             override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
                 if (response.isSuccessful) lazyResponse.postValue(response.body())
+                isLoading.value = false
             }
 
             override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
+                isLoading.value = false
+
             }
         })
 
@@ -32,9 +37,13 @@ class TechViewModel :ViewModel() {
         ApiConfig().getApiService().getTip().enqueue(object : Callback<List<LazyResponse>> {
             override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
                 if (response.isSuccessful) lazyResponse.postValue(response.body())
+                isLoading.value = false
+
             }
 
             override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
+                isLoading.value = false
+
             }
         })
     }
@@ -43,9 +52,13 @@ class TechViewModel :ViewModel() {
         ApiConfig().getApiService().getRecommend().enqueue(object : Callback<List<LazyResponse>> {
             override fun onResponse(call: Call<List<LazyResponse>>, response: Response<List<LazyResponse>>) {
                 if (response.isSuccessful) lazyResponse.postValue(response.body())
+                isLoading.value = false
+
             }
 
             override fun onFailure(call: Call<List<LazyResponse>>, t: Throwable) {
+                isLoading.value = false
+
             }
         })
     }
