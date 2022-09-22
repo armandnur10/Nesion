@@ -14,7 +14,7 @@ import retrofit2.Response
 
 class TechViewModel :ViewModel() {
 
-    private val lazyResponse = MutableLiveData<List<LazyResponse>>()
+    val lazyResponse = MutableLiveData<List<LazyResponse>>()
 
     val isLoading = MutableLiveData(true)
 
