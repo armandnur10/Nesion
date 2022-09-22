@@ -19,7 +19,7 @@
     <string name="txt_content_logout">press btn if you want to logout account</string>
     <string name="content_fab_add_notes">for search home</string>
     <string name="txt_title_profile">Name</string>
-    <string name="txt_email_profile">Email</string>
+    <string name="txt_email_profile">Email@gmail.com</string>
     <string name="txt_no_hp_profile">No HandPhone</string>
     <string name="txt_password_profile">password</string>
     <string name="txt_logout_profile">LOGOUT</string>
