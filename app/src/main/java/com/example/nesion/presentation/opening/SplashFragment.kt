@@ -52,8 +52,8 @@ class SplashFragment : Fragment() {
                 }
 
                 override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
-                    val action = SplashFragmentDirections.actionSplashFragmentToHomeFragment()
-                    findNavController().navigate(action)
+//                    val action = SplashFragmentDirections.actionSplashFragmentToHomeFragment()
+//                    findNavController().navigate(action)
                 }
 
                 override fun onTransitionTrigger(

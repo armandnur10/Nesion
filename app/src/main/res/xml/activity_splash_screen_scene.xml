@@ -5,7 +5,8 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="1000">
+        motion:autoTransition="animateToEnd"
+        motion:duration="3000">
         <KeyFrameSet>
             <KeyAttribute
                 android:scaleX="0.7"
@@ -23,7 +24,7 @@
                 motion:framePosition="100"
                 motion:motionTarget="@+id/imageView" />
         </KeyFrameSet>
-        <OnClick motion:targetId="@+id/imageView" />
+<!--        <OnClick motion:targetId="@+id/imageView" />-->
     </Transition>
 
     <ConstraintSet android:id="@+id/start"></ConstraintSet>
