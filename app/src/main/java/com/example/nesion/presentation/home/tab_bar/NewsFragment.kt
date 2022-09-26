@@ -14,11 +14,11 @@ import com.example.nesion.presentation.home.adapter.NewsAdapter
 
 class NewsFragment : Fragment() {
 
+
+    //Ngetes bang
     private lateinit var binding: FragmentNewsBinding
 
     private val newsViewModel by viewModels<TechViewModel>()
-
-    private val viewModel: TechViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,13 +34,10 @@ class NewsFragment : Fragment() {
         newsViewModel.news()
         newsViewModel.getLazy().observe(viewLifecycleOwner){
             setupRecyclerView(it)
-            setupBindings()
         }
     }
 
-
-
-    private fun setupRecyclerView(data : List<LazyResponse>){
+    private fun setupRecyclerView(data: List<LazyResponse>){
         binding.rvNews.apply {
             Log.i("DataLazy", "$data")
             val mAdapter = NewsAdapter()
@@ -50,15 +47,5 @@ class NewsFragment : Fragment() {
         }
     }
 
-    private fun setupBindings(){
-        if (viewModel.lazyResponse.value == null) viewModel.getLazy()
-        viewModel.isLoading.observe(viewLifecycleOwner){showLoading(it)}
-    }
 
-    private fun showLoading(isLoading: Boolean) {
-        binding.apply {
-            pgBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-            rvNews.visibility = if (isLoading) View.GONE else View.VISIBLE
-        }
-    }
 }
